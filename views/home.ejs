@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("./partials/head") %>
+        <title>
+            Homepage
+        </title>
+</head>
+
+<body>
+
+
+    <%- include("./partials/nav") %>
+
+            <div class="container" style="
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap;
+            padding: 20px;
+            ">
+                <% blogs.forEach(blog=> { %>
+                <div class="card" style="
+                width: 300px; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 10px;
+            ">
+                   
+                        <img src=<%=blog.CoverImageURL%> alt="CoverImage"
+                        style="
+                        width: auto;
+                        height: 200px;
+                        background-size: cover;
+                        ">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <%= blog.title %>
+                            </h4>
+                            <p class="card-text"></p>
+                            <a href="/blog/<%= blog._id %>" class="btn btn-primary">See Profile</a>
+                        </div>
+                      
+                </div>
+                <% }) %>
+            </div>
+
+        <%- include("./partials/script") %>
+
+
+
+
+
+
+</body>
+
+</html>
